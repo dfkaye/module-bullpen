@@ -42,15 +42,15 @@ require.cache = {};
 
 function load(id, callback) {
   //callback(err, parent)
-  var path = dirname + expand(id);
+  var path = expand(id);
   
   var script = document.createElement('script');
   
-  script.src = path;
+  script.src = dirname + path;
   script.onload = script.onreadystatechange = function () {
     if (!script.readyState || script.readyState.match(/loaded|complete/i)) {
       script.onload = script.onreadystatechange = null;
-      resolve(id);
+      resolve(path);
     }
   }
   
@@ -62,10 +62,10 @@ function load(id, callback) {
   head.appendChild(script);
 }
 
-function resolve(id) {
+function resolve(path) {
   
-  console.log('id loaded: ' + id);
-  require.cache[id].loaded = true;
+  console.log('loaded: ' + path);
+  require.cache[path].loaded = true;
 }
 
 
