@@ -8,4 +8,6 @@ define('./remote.js');
     inline('remote');
     console.log('remote called by ' + caller);
   }
+  
+  console.log('remote loaded')
 }());
