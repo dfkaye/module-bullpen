@@ -5,7 +5,7 @@ define('./remote.js');
   
   module.exports = remote; function remote() {
   
-    inline();
+    inline('remote');
     console.log('remote called');
   }
 }());
