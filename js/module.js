@@ -42,7 +42,7 @@ require.cache = {};
 
 function load(url, callback) {
   //callback(err, parent)
-  url = expand(url);
+  url = expand(dirname + url);
   
   var script = document.createElement('script');
   
