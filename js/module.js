@@ -4,9 +4,11 @@ var dirname;
 var filename = '/module.js';
 var scripts = document.scripts;
 var length = scripts.length;
+var src;
 for (var i = 0; i < length; ++i) {
-  if (scripts.src.indexOf(filename) > 0 )
-    dirname = scripts.src.split(filename)[0];
+  src = scripts[i].src;
+  if (src.indexOf(filename) > 0 )
+    dirname = src.split(filename)[0];
     break;
 }
 
