@@ -44,3 +44,13 @@ function Module(id) {
 define('.');
 
 define('./inline');
+;(function() {
+  
+  module.exports = inline; function inline() {
+    global.console && console.log('inline.js');
+
+  }
+  
+});
+
+
