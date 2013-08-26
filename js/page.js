@@ -17,9 +17,11 @@ require('./remote');
     
     remote('page.js');
   }
-  window.load = function() {
+  
+  window.onload = function() {
     s();
   }
+  
   global.console && console.log('page.js');
 
 }());
