@@ -31,14 +31,14 @@ function expand(path, parent) {
 function require(id, name) {
   path = expand(id);
   if (!require.cache[path]) {
-    console.log('not found: ' + path);
+    console.log('not cached: ' + path);
+    require.cache[path] =  new Module(id);
     load(path);
   }
   return require.cache[path].exports;
 }
 
 require.cache = {};
-
 
 function load(url, callback) {
   //callback(err, parent)
