@@ -1,6 +1,10 @@
 typeof global != 'undefined' || (window.global = window);
 global.console && console.log('module.js');
 
+function define(name) {
+  
+}
+
 function expand(path, parent) {
   
 }
