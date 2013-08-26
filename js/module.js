@@ -52,7 +52,7 @@ function define(id) {
   var m = require.cache[path];
   if (!m) {
     m = new Module(id);
-    require.cache[m.filename]
+    require.cache[m.filename] = m;
   }
   global.module = require.cache[path];
 }
