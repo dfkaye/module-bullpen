@@ -64,7 +64,7 @@ define('.');
 
 define('./inline');
 ;(function() {
-  
+  alert('inline')
   global.console && console.log('inline defined')
   function inline() {
     global.console && console.log('inline.js');
