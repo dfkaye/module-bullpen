@@ -16,20 +16,20 @@ for (var i = 0; i < length; ++i) {
 
 global.console && console.log(dirname + 'module.js');
 
-function expand(path, parent) {
-  if (path == '.') {
-    return path;
+function expand(id, parent) {
+  if (id == '.') {
+    return id;
   }
   
-  if (path.lastIndexOf('.js') != path.length - 3) {
-    path += '.js';
+  if (id.lastIndexOf('.js') != id.length - 3) {
+    id += '.js';
   }
   
-  return path;
+  return id;
 }
 
 function require(id, name) {
-  path = expand(id);
+  var path = expand(id);
   if (!require.cache[path]) {
     console.log('not cached: ' + path);
     require.cache[path] =  new Module(id);
@@ -40,17 +40,17 @@ function require(id, name) {
 
 require.cache = {};
 
-function load(url, callback) {
+function load(id, callback) {
   //callback(err, parent)
-  url = expand(dirname + url);
+  var path = dirname + expand(id);
   
   var script = document.createElement('script');
   
-  script.src = url;
+  script.src = path;
   script.onload = script.onreadystatechange = function () {
     if (!script.readyState || script.readyState.match(/loaded|complete/i)) {
       script.onload = script.onreadystatechange = null;
-      resolve(url);
+      resolve(id);
     }
   }
   
@@ -62,10 +62,10 @@ function load(url, callback) {
   head.appendChild(script);
 }
 
-function resolve(url) {
+function resolve(id) {
   
-  console.log('url loaded: ' + url);
-  require.cache[url].loaded = true;
+  console.log('id loaded: ' + id);
+  require.cache[id].loaded = true;
 }
 
 
