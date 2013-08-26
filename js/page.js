@@ -1,13 +1,13 @@
 define('./page.js');
 require('./inline');
-require('./remote');
+//require('./remote');
 
 ;(function() {
   
   var inline, remote;
   
-  inline = require('inline');
-  remote = require('remote');
+  inline = require('./inline');
+  //remote = require('./remote');
 
   module.exports = s; function s() {
     
