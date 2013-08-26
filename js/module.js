@@ -8,7 +8,7 @@ var src;
 for (var i = 0; i < length; ++i) {
   src = scripts[i].src;
   if (src.indexOf(filename) > 0 )
-    dirname = src.split(filename)[0];
+    dirname = src.split(filename)[0] + '/';
     break;
 }
 
