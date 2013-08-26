@@ -14,7 +14,7 @@ require('./inline');
   remote = require('./remote');
 
   module.exports = s; function s() {
-    remote();
+    remote('page.js');
   }
   
   global.console && console.log('page.js');
