@@ -14,8 +14,6 @@ for (var i = 0; i < length; ++i) {
 
 global.console && console.log(dirname + 'module.js');
 
-
-
 function expand(path, parent) {
   if (path == '.') {
     return path;
@@ -68,11 +66,11 @@ define('./inline');
 ;(function() {
   
   console.log('inline defined')
-  module.exports = inline; function inline() {
+  function inline() {
     global.console && console.log('inline.js');
 
   }
-  
+  module.exports = inline; 
 });
 
 
