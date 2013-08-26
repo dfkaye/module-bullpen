@@ -17,11 +17,15 @@ global.console && console.log(dirname + 'module.js');
 
 
 function expand(path, parent) {
+  if (path.lastIndexOf('.js') != path.length - 3) {
+    path += '.js';
+  }
   
+  return path;
 }
 
 function require(path, name) {
-  if (!require.cache[name]) {
+  if (!require.cache[path]) {
    console.log('not found: ' + path) 
   }
   return require.cache[path].exports;
@@ -42,11 +46,17 @@ function Module(id) {
 }
 
 
-function define(name) {
-  if (!require.cache[name]) {
-    require.cache[name] = new Module(name);
+function define(id) {
+  var path = id;
+  if (id.lastIndexOf('.js') != id.length - 3) {
+    path += '.js';
   }
-  global.module = require.cache[name];
+  var m = require.cache[path];
+  if (!m) {
+    m = new Module(id);
+    require.cache[m.filename]
+  }
+  global.module = require.cache[path];
 }
 
 
