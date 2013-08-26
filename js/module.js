@@ -62,6 +62,7 @@ function define(id) {
 
 define('.');
 
+// emulate concatenated src
 define('./inline');
 ;(function() {
 
