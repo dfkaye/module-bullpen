@@ -14,9 +14,12 @@ require('./remote');
   remote = require('./remote');
 
   module.exports = s; function s() {
+    
     remote('page.js');
   }
-  
+  window.load = function() {
+    s();
+  }
   global.console && console.log('page.js');
 
 }());
