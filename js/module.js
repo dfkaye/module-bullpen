@@ -64,17 +64,18 @@ function load(url, callback) {
 
 function resolve(url) {
   
-  console.log('url loaded: ' + url)
+  console.log('url loaded: ' + url);
+  require.cache[url].loaded = true;
 }
 
 
 function Module(id) {
-  
   this.id = id;
   this.filename = id + '.js';
   this.exports = {};
   this.children = [];
   this.parent;
+  this.loaded = false;
 }
 
 
@@ -87,7 +88,15 @@ function define(id) {
 }
 
 
+// start
 define('.');
+;(function() {
+
+  global.define = define;
+  global.require = require;
+  
+}());
+
 
 // emulate concatenated src
 define('./inline');
@@ -96,10 +105,9 @@ define('./inline');
   global.console && console.log('inline defined');
   
   module.exports = inline; function inline(caller) {
+    
     global.console && console.log('inline.js called by ' + caller);
 
   }
   
 }());
-
-
