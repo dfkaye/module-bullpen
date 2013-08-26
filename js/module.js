@@ -44,7 +44,7 @@ function define(name) {
   if (!require.cache[name]) {
     require.cache[name] = new Module(name);
   }
-  global.module = require.cache(name);
+  global.module = require.cache[name];
 }
 
 
