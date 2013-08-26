@@ -24,8 +24,8 @@ function expand(path, parent) {
   return path;
 }
 
-function require(path, name) {
-  path = expand(path);
+function require(id, name) {
+  path = expand(id);
   if (!require.cache[path]) {
    console.log('not found: ' + path) 
   }
