@@ -15,9 +15,6 @@ for (var i = 0; i < length; ++i) {
 global.console && console.log(dirname + 'module.js');
 
 
-function define(name) {
-  global.module = new Module(name);
-}
 
 function expand(path, parent) {
   
@@ -40,6 +37,15 @@ function Module(id) {
   this.exports = {};
   
 }
+
+
+function define(name) {
+  if (!require.cache(name)) {
+    require.cache(name) = new Module(name);
+  }
+  global.module = require.cache(name);
+}
+
 
 define('.');
 
