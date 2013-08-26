@@ -55,6 +55,7 @@ define('.');
 define('./inline');
 ;(function() {
   
+  console.log('inline defined')
   module.exports = inline; function inline() {
     global.console && console.log('inline.js');
 
