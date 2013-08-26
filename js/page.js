@@ -18,6 +18,7 @@ require('./remote');
     remote('page.js');
   }
   
+  // bootstrapping? queueing? intercept?
   window.onload = function() {
     s();
   }
