@@ -17,6 +17,10 @@ global.console && console.log(dirname + 'module.js');
 
 
 function expand(path, parent) {
+  if (path == '.') {
+    return path;
+  }
+  
   if (path.lastIndexOf('.js') != path.length - 3) {
     path += '.js';
   }
@@ -52,7 +56,7 @@ function define(id) {
   var m = require.cache[path];
   if (!m) {
     m = new Module(id);
-    require.cache[m.filename] = m;
+    require.cache[path] = m;
   }
   global.module = require.cache[path];
 }
