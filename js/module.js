@@ -21,7 +21,9 @@ function expand(path, parent) {
 }
 
 function require(path, name) {
-  //if (!require.cache[name]) {
+  if (!require.cache[name]) {
+   console.log('not found: ' + path) 
+  }
   return require.cache[path].exports;
 }
 
