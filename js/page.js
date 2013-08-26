@@ -1,4 +1,4 @@
-define('./page.js');
+define('./page');
 require('./inline');
 //require('./remote');
 
