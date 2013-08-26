@@ -25,6 +25,7 @@ function expand(path, parent) {
 }
 
 function require(path, name) {
+  path = expand(path);
   if (!require.cache[path]) {
    console.log('not found: ' + path) 
   }
@@ -47,10 +48,7 @@ function Module(id) {
 
 
 function define(id) {
-  var path = id;
-  if (id.lastIndexOf('.js') != id.length - 3) {
-    path += '.js';
-  }
+  var path = expand(id);
   var m = require.cache[path];
   if (!m) {
     m = new Module(id);
