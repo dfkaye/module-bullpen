@@ -3,9 +3,9 @@ define('./remote.js');
 
   var inline = require('./inline');
   
-  module.exports = remote; function remote() {
+  module.exports = remote; function remote(caller) {
   
     inline('remote');
-    console.log('remote called');
+    console.log('remote called by ' + caller);
   }
 }());
