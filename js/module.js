@@ -67,12 +67,11 @@ define('./inline');
 
   global.console && console.log('inline defined');
   
-  function inline() {
-    global.console && console.log('inline.js');
+  module.exports = inline; function inline(caller) {
+    global.console && console.log('inline.js called by ' + caller);
 
   }
   
-  module.exports = inline; 
 }());
 
 
