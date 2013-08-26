@@ -80,10 +80,8 @@ function Module(id) {
 
 function define(id) {
   var path = expand(id);
-  var m = require.cache[path];
-  if (!m) {
-    m = new Module(id);
-    require.cache[path] = m;
+  if (!require.cache[path]) {
+    require.cache[path] = new Module(id);
   }
   global.module = require.cache[path];
 }
