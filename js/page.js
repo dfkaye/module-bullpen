@@ -1,6 +1,6 @@
 define('./page');
 require('./inline');
-//require('./remote');
+require('./remote');
 
 ;(function() {
   
