@@ -21,7 +21,8 @@ function expand(path, parent) {
 }
 
 function require(path, name) {
-  
+  //if (!require.cache[name]) {
+  return require.cache[path].exports;
 }
 
 require.cache = {};
@@ -40,8 +41,8 @@ function Module(id) {
 
 
 function define(name) {
-  if (!require.cache(name)) {
-    require.cache(name) = new Module(name);
+  if (!require.cache[name]) {
+    require.cache[name] = new Module(name);
   }
   global.module = require.cache(name);
 }
