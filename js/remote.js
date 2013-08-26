@@ -1,5 +1,4 @@
 define('./remote.js');
-console.log('remote loaded')
 ;(function() {
 
   var inline = require('./inline');
@@ -10,5 +9,6 @@ console.log('remote loaded')
     console.log('remote called by ' + caller);
   }
   
-  
+  console.log('remote loaded')
+
 }());
