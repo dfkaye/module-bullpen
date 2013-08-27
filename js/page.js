@@ -15,7 +15,8 @@ require('./remote');
 
   module.exports = s; function s() {
     
-    remote('page.js');
+    //remote('page.js');
+    require('./remote')('page.js');
   }
   
   // bootstrapping? queueing? intercept?
