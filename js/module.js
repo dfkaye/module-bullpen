@@ -31,7 +31,9 @@ function expand(id, parent) {
 function require(id, name) {
   var path = expand(id);
   if (!require.cache[path]) {
-    console.log('not cached: ' + path);
+    
+    global.console && console.log('not cached: ' + path);
+    
     require.cache[path] =  new Module(id);
     load(path);
   }
@@ -55,7 +57,9 @@ function load(id, callback) {
   }
   
   script.onerror = function (e) {
-    console.error('error loading script: ' + e);
+    
+    global.console && console.error('error loading script: ' + e);
+    
     //module.pathError(filename);
   }
   
@@ -64,7 +68,8 @@ function load(id, callback) {
 
 function resolve(path) {
   
-  console.log('loaded: ' + path);
+  global.console && console.log('loaded: ' + path);
+  
   require.cache[path].loaded = true;
 }
 
