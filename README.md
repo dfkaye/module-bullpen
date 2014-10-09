@@ -5,7 +5,7 @@ An example repo that uses <a href='//rawgit.com/'>rawgit</a> for testing
 pages in a browser.  This one uses a fake js experiment pretending to test a 
 module/require solution.
 
-<a href='https://rawgit.com/dfkaye/rawgit-bullpen/master/index.html' target='_new'
+<a href='https://rawgit.com/dfkaye/rawgithub-bullpen/master/index.html' target='_new'
   title='opens new window or tab'>view on rawgit</a>
   
 justify
